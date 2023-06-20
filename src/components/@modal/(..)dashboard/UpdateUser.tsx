@@ -9,7 +9,7 @@ import {
 } from "react";
 import axios from "axios";
 import { Field, Form, Formik } from "formik";
-import { BookingSchema } from "@/validation/booking.validate";
+import { BookingSchema } from "@/src/validation/booking.validate";
 import ErrorModal from "../../Error";
 import SuccessModal from "../../Success";
 

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { CursorArrowRaysIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
-import BookingForm from "@/app/components/@modal/(..)web/Form";
+import BookingForm from "@/src/components/@modal/(..)web/Form";
 
 const features = [
   { name: "Origin", description: "Designed by Good Goods, Inc." },

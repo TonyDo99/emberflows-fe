@@ -1,4 +1,4 @@
-import { websites } from "@/data/website";
+import { websites } from "@/src/data/website";
 import Image from "next/image";
 import Link from "next/link";
 

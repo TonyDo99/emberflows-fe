@@ -1,4 +1,4 @@
-import Webs from "../components/Web";
+import Webs from "../../components/Web";
 
 export default function ProductPage() {
   return (

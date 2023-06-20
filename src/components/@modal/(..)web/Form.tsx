@@ -2,8 +2,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Dispatch, Fragment, SetStateAction, useRef, useState } from "react";
 import axios from "axios";
 import { Field, Form, Formik } from "formik";
-import { BookingSchema } from "@/validation/booking.validate";
-import { websites } from "@/data/website";
+import { BookingSchema } from "@/src/validation/booking.validate";
+import { websites } from "@/src/data/website";
 import ErrorModal from "../../Error";
 import SuccessModal from "../../Success";
 

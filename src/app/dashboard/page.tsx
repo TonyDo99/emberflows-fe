@@ -1,8 +1,8 @@
 "use client";
 import axios from "axios";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import ErrorModal from "../components/Error";
-import UpdateUserForm from "../components/@modal/(..)dashboard/UpdateUser";
+import ErrorModal from "../../components/Error";
+import UpdateUserForm from "../../components/@modal/(..)dashboard/UpdateUser";
 
 const getUsers = async (
   setUser: any,

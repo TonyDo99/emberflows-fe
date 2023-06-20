@@ -1,5 +1,5 @@
-import { adminAccount } from "@/data/admin";
-import { loginSchema } from "@/validation/login.validate";
+import { adminAccount } from "@/src/data/admin";
+import { loginSchema } from "@/src/validation/login.validate";
 import { Dialog, Transition } from "@headlessui/react";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
