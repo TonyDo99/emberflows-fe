@@ -1,6 +1,21 @@
+import { adminAccount } from "@/data/admin";
+import { loginSchema } from "@/validation/login.validate";
 import { Dialog, Transition } from "@headlessui/react";
+import { Field, Form, Formik } from "formik";
 import Link from "next/link";
-import { Dispatch, Fragment, SetStateAction, useRef } from "react";
+import { Dispatch, Fragment, SetStateAction, useRef, useState } from "react";
+
+const login = (
+  email: string,
+  password: string,
+  setLoginStatus: Dispatch<SetStateAction<boolean | undefined>>
+) => {
+  if (email === adminAccount.email && password === adminAccount.password) {
+    window.location.href = "/dashboard";
+  } else {
+    setLoginStatus(false);
+  }
+};
 
 export default function LoginComponent({
   open,
@@ -9,6 +24,8 @@ export default function LoginComponent({
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 }) {
+  const [loginStatus, setLoginStatus] = useState<boolean>();
+
   const cancelButtonRef = useRef(null);
 
   return (
@@ -50,75 +67,85 @@ export default function LoginComponent({
                         Sign in to your account
                       </h2>
                     </div>
-
-                    <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                      <form className="space-y-6" action="#" method="POST">
-                        <div>
-                          <label
-                            htmlFor="email"
-                            className="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Email address
-                          </label>
-                          <div className="mt-2">
-                            <input
-                              id="email"
-                              name="email"
-                              type="email"
-                              autoComplete="email"
-                              required
-                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                          </div>
-                        </div>
-
-                        <div>
-                          <div className="flex items-center justify-between">
+                    <Formik
+                      initialValues={{
+                        email: "",
+                        password: "",
+                      }}
+                      validationSchema={loginSchema}
+                      onSubmit={({ email, password }) => {
+                        login(email, password, setLoginStatus);
+                      }}
+                    >
+                      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                        <Form className="space-y-6">
+                          <div>
                             <label
-                              htmlFor="password"
+                              htmlFor="email"
                               className="block text-sm font-medium leading-6 text-gray-900"
                             >
-                              Password
+                              Email address
                             </label>
-                            <div className="text-sm">
-                              <a
-                                href="#"
-                                className="font-semibold text-indigo-600 hover:text-indigo-500"
-                              >
-                                Forgot password?
-                              </a>
+                            <div className="mt-2">
+                              <Field
+                                id="email"
+                                name="email"
+                                type="email"
+                                autoComplete="email"
+                                required
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              />
                             </div>
                           </div>
-                          <div className="mt-2">
-                            <input
-                              id="password"
-                              name="password"
-                              type="password"
-                              autoComplete="current-password"
-                              required
-                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                          </div>
-                        </div>
 
-                        <div>
-                          <button
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <label
+                                htmlFor="password"
+                                className="block text-sm font-medium leading-6 text-gray-900"
+                              >
+                                Password
+                              </label>
+                              <div className="text-sm">
+                                <a
+                                  href="#"
+                                  className="font-semibold text-indigo-600 hover:text-indigo-500"
+                                >
+                                  Forgot password?
+                                </a>
+                              </div>
+                            </div>
+                            <div className="mt-2">
+                              <Field
+                                id="password"
+                                name="password"
+                                type="password"
+                                autoComplete="current-password"
+                                required
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              />
+                            </div>
+                          </div>
+
+                          <div>
+                            <button
+                              type="submit"
+                              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
+                            >
+                              Sign in
+                            </button>
+                          </div>
+
+                          <Link
+                            href="/register"
                             type="submit"
                             className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
                           >
-                            Sign in
-                          </button>
-                        </div>
-
-                        <Link
-                          href="/register"
-                          type="submit"
-                          className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
-                        >
-                          Register
-                        </Link>
-                      </form>
-                    </div>
+                            Register
+                          </Link>
+                        </Form>
+                      </div>
+                    </Formik>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

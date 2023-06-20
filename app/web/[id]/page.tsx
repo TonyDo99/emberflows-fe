@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { CheckIcon } from "@heroicons/react/20/solid";
+import { CursorArrowRaysIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
 import BookingForm from "@/app/components/@modal/(..)web/Form";
 
@@ -50,28 +50,28 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
         </div>
         <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
           <Image
-            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg"
+            src="https://cdn.dribbble.com/userupload/4396435/file/original-60f5a7d5489a08ce60383766bd36439c.png?compress=1&resize=752x"
             alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
             className="rounded-lg bg-gray-100"
             width={300}
             height={300}
           />
           <Image
-            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-02.jpg"
+            src="https://cdn.dribbble.com/userupload/4387289/file/original-c3f57290bc76c22b7d245c8c833d2dcd.png?compress=1&resize=752x"
             alt="Top down view of walnut card tray with embedded magnets and card groove."
             className="rounded-lg bg-gray-100"
             width={300}
             height={300}
           />
           <Image
-            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-03.jpg"
+            src="https://cdn.dribbble.com/userupload/6012665/file/original-0292d6a01076ded0d131e46889479882.png?compress=1&resize=752x"
             alt="Side of walnut card tray with card groove and recessed card area."
             className="rounded-lg bg-gray-100"
             width={300}
             height={300}
           />
           <Image
-            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-04.jpg"
+            src="https://cdn.dribbble.com/userupload/4392539/file/original-247cbaac5509d1959c43a89447798c41.png?compress=1&resize=752x"
             alt="Walnut card tray filled with cards and card angled in dedicated groove."
             className="rounded-lg bg-gray-100"
             width={300}
@@ -84,7 +84,10 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
             className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             onClick={() => setOpenModal(true)}
           >
-            <CheckIcon className="-ml-0.5 mr-1.5 h-5 w-5" aria-hidden="true" />
+            <CursorArrowRaysIcon
+              className="-ml-0.5 mr-1.5 h-5 w-5"
+              aria-hidden="true"
+            />
             Booking
           </button>
         </span>

@@ -13,21 +13,24 @@ export default function Webs() {
                 src={website.imageSrc}
                 alt={website.imageAlt}
                 fill
-                className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded-lg"
               />
             </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <span aria-hidden="true" className="absolute inset-0" />
-                  {website.name}
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">{website.color}</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">
-                {website.price}
+          </div>
+          <div className="mt-4 flex justify-between">
+            <div>
+              <h3 className="text-sm text-gray-700">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 font-semibold"
+                />
+                {website.name}
+              </h3>
+              <p className="mt-1 text-sm text-gray-500">
+                {website.description}
               </p>
             </div>
+            <p className="text-sm font-medium text-gray-900">{website.price}</p>
           </div>
         </Link>
       ))}
